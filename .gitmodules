@@ -1,7 +1,7 @@
 [submodule "libs/cmake_example_project"]
 	path = libs/cmake_example_project
-	url = https://github.com/seityaya/cmake_example_project
+	url = https://github.com/seityaya/cmake_example_project.git
 
 [submodule "libs/cmake_example_project_derive"]
 	path = libs/cmake_example_project_derive
-	url = https://github.com/seityaya/cmake_example_project_derive
+	url = https://github.com/seityaya/cmake_example_project_derive.git
