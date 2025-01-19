@@ -4,18 +4,29 @@ project(my_calculator_libs)
 
 include(FetchContent)
 
+if(NOT TARGET my_math)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/libs/cmake_example_project)
+endif()
 
-FetchContent_Declare(cmake_example_project
-  GIT_REPOSITORY "https://github.com/seityaya/cmake_example_project.git"
-  GIT_TAG "origin/master"
-  SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cmake_example_project"
-)
-FetchContent_MakeAvailable(cmake_example_project)
+if(NOT TARGET my_math)
+    FetchContent_Declare(cmake_example_project
+      GIT_REPOSITORY "https://github.com/seityaya/cmake_example_project.git"
+      GIT_TAG "origin/master"
+      SOURCE_DIR "${CMAKE_SOURCE_DIR}/libs/cmake_example_project"
+    )
+    FetchContent_MakeAvailable(cmake_example_project)
+endif()
 
 
-FetchContent_Declare(cmake_example_project_derive
-  GIT_REPOSITORY "https://github.com/seityaya/cmake_example_project_derive.git"
-  GIT_TAG "origin/master"
-  SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/cmake_example_project_derive"
-)
-FetchContent_MakeAvailable(cmake_example_project_derive)
+if(NOT TARGET my_calc)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/libs/cmake_example_project_derive)
+endif()
+
+if(NOT TARGET my_calc)
+    FetchContent_Declare(cmake_example_project_derive
+      GIT_REPOSITORY "https://github.com/seityaya/cmake_example_project_derive.git"
+      GIT_TAG "origin/master"
+      SOURCE_DIR "${CMAKE_SOURCE_DIR}/libs/cmake_example_project_derive"
+    )
+    FetchContent_MakeAvailable(cmake_example_project_derive)
+endif()
